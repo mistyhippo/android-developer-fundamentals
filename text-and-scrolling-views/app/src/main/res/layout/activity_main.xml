@@ -16,8 +16,6 @@
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 
-
-
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,7 +47,7 @@
                 android:id="@+id/button_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/pressme"/>
+                android:text="@string/pressme" />
 
         </LinearLayout>
     </ScrollView>
