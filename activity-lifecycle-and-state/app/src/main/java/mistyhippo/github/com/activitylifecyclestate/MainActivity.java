@@ -21,9 +21,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Initialize all the view variables
         mMessageEditText = findViewById(R.id.editText_main);
         myReplyHeadTextView = findViewById(R.id.text_header_reply);
         myReplyTextView = findViewById(R.id.text_message_reply);
+        //Restore the state
+        if(savedInstanceState != null){
+            boolean isVisible = savedInstanceState.getBoolean("reply_invisible");
+
+            if(isVisible){
+                myReplyHeadTextView.setVisibility(View.VISIBLE);
+                myReplyTextView.setText(savedInstanceState.getString("reply_text"));
+                myReplyTextView.setVisibility(View.VISIBLE);
+            }
+        }
         Log.d(LOG_TAG, "--------");
         Log.d(LOG_TAG, "onCreate");
     }
@@ -62,6 +73,18 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         Log.d(LOG_TAG, "onDestroy");
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+
+        if(myReplyHeadTextView.getVisibility() == View.VISIBLE){
+            outState.putBoolean("reply_visible", true);
+            outState.putString("reply_text", myReplyTextView.getText().toString());
+        }
+    }
+
+
 
     public void launchSecondActivity(View view) {
         Intent intent = new Intent(this, SecondActivity.class);
