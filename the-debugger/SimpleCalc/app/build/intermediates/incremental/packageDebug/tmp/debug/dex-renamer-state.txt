@@ -1,0 +1,4 @@
+#Fri Nov 09 10:04:02 PST 2018
+base.0=/home/zoning/AndroidStudioProjects/android-developer-fundamentals/the-debugger/SimpleCalc/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
